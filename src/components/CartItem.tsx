@@ -2,6 +2,7 @@ import { Button, Stack } from 'react-bootstrap';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import storeItems from '../data/items.json';
 import { formatCurrency } from '../utilities/formatCurrency';
+import pokus from './pokus.module.css';
 
 type CartItemProp = {
   id: number;
@@ -20,7 +21,7 @@ export function CartItem({ id, quantity }: CartItemProp) {
         src={item.imgUrl}
         style={{ width: '125px', height: '75px', objectFit: 'cover' }}
       />
-      <div className="me-auto">
+      <div className={`${pokus.test} me-auto`}>
         <div>
           {item.name}{' '}
           {quantity > 1 && (
