@@ -1,8 +1,9 @@
+import classNames from 'classnames';
 import { Button, Stack } from 'react-bootstrap';
-import { useShoppingCart } from '../context/ShoppingCartContext';
-import storeItems from '../data/items.json';
-import { formatCurrency } from '../utilities/formatCurrency';
-import pokus from './pokus.module.css';
+import { useShoppingCart } from '../../context/ShoppingCartContext';
+import storeItems from '../../data/items.json';
+import { formatCurrency } from '../../utilities/formatCurrency';
+import styles from './CartItem.module.css';
 
 type CartItemProp = {
   id: number;
@@ -19,18 +20,18 @@ export function CartItem({ id, quantity }: CartItemProp) {
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
         src={item.imgUrl}
-        style={{ width: '125px', height: '75px', objectFit: 'cover' }}
+        className={styles.cartItem__img}
       />
-      <div className={`${pokus.test} me-auto`}>
+      <div className={classNames('me-auto')}>
         <div>
           {item.name}{' '}
           {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: '.65rem' }}>
+            <span className={classNames('text-muted', styles.cartItem__quantity)}>
               x{quantity}
             </span>
           )}
         </div>
-        <div className="text-muted" style={{ fontSize: '.75rem' }}>
+        <div className={classNames('text-muted', styles.cartItem__price)}>
           {formatCurrency(item.price)}
         </div>
       </div>

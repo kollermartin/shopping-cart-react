@@ -1,0 +1,7 @@
+.item__img {
+  object-fit: cover;
+}
+
+.gap {
+  gap: .5rem;
+}
